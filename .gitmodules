@@ -1,3 +1,9 @@
 [submodule "WebDev/2-Javascript/WebDev/2-Javascript/javascript-portfolio"]
 	path = WebDev/2-Javascript/WebDev/2-Javascript/javascript-portfolio
 	url = https://github.com/mjay88/bootstrap-starter.git
+[submodule "WebDev/2-Javascript/path/to/js-portfolio-project"]
+	path = WebDev/2-Javascript/path/to/js-portfolio-project
+	url = https://github.com/mjay88/bootstrap-starter.git
+[submodule "WebDev/2-Javascript/js-portfolio-project/bootstrap-starter"]
+	path = WebDev/2-Javascript/js-portfolio-project/bootstrap-starter
+	url = https://github.com/mjay88/bootstrap-starter.git
