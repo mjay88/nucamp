@@ -14,9 +14,8 @@ function buyTicket() {
 	let age = prompt("How old are you?");
 	let qualifiesForDiscount = getBaseTicketCost(age);
 	let isMatinee = isMatineeShow();
-    
     if (qualifiesForDiscount && isMatinee) {
-    	alert(`The cost of addmission is $${(discountedTicket - 3).toFixed(2)}`);
+		alert(`The cost of addmission is $${(discountedTicket - 3).toFixed(2)}`);
     } else if (qualifiesForDiscount && !isMatinee) {
     	alert(`The cost of addmission is $${discountedTicket.toFixed(2)}`);
     } else if (!qualifiesForDiscount && isMatinee){
@@ -26,6 +25,7 @@ function buyTicket() {
     }
 
 }
+
 
 function getBaseTicketCost(age) {
 	if (age < 12 || age > 65) {

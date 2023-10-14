@@ -21,7 +21,7 @@ function runGame() {
 		guess = prompt(`I am thinking of one of these colors: \n\n 
      ${COLORS_ARRAY.join(", ")}\n\n
      What color am I thinking of? \n
-    `);
+    `).toLowerCase();
 		if (guess === null) {
 			alert("You didn't enter anything");
 			return;
@@ -31,13 +31,13 @@ function runGame() {
 	} while (!correct);
 
     alert(`Congratulations, you guessed correctly in ${count} tries`)
-    
+    document.querySelector("body").style.backgroundColor = target;
 }
 
 function checkGuess(guess, target) {
  let correct = false;
  if(!COLORS_ARRAY.includes(guess)){
-    alert("That is not a valid color")
+    alert("That is not a valid color \n\n Please try again")
  } else if(COLORS_ARRAY.indexOf(guess) > COLORS_ARRAY.indexOf(target)){
     alert("You were close, but a little too high...")
  } else if(COLORS_ARRAY.indexOf(guess) < COLORS_ARRAY.indexOf(target)){
