@@ -7,3 +7,6 @@
 [submodule "WebDev/2-Javascript/js-portfolio-project/bootstrap-starter"]
 	path = WebDev/2-Javascript/js-portfolio-project/bootstrap-starter
 	url = https://github.com/mjay88/bootstrap-starter.git
+[submodule "WebDev/2-Javascript/js-portfolio-project/bootstrap-forms"]
+	path = WebDev/2-Javascript/js-portfolio-project/bootstrap-forms
+	url = https://github.com/mjay88/bootstrap-starter.git
