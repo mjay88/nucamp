@@ -1,8 +1,10 @@
 class Student {
 	constructor(name, email) {
+		//should add validation for name and email
 		this.name = name;
 		this.email = email;
-	}												
+	}	
+												
 }
 
 class Bootcamp {
