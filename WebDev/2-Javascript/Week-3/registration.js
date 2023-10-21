@@ -2,7 +2,7 @@ class Student {
 	constructor(name, email) {
 		this.name = name;
 		this.email = email;
-	}
+	}												
 }
 
 class Bootcamp {
@@ -11,8 +11,8 @@ class Bootcamp {
 		this.level = level;
 		this.students = students;
 	}
-	registerStudent(studentToRegister) {
-		if (!studentToRegister.name || !studentToRegister.email) {
+	registerStudent(studentToRegister) {//student to register is an object with name and email
+		if (typeof studentToRegister !== "object" || !studentToRegister.name || !studentToRegister.email) {
 			console.log(`Invalid name or email`);
 			return false;
 		}
@@ -24,7 +24,8 @@ class Bootcamp {
 			);
 			return false;
 		} else {
-			this.students.push(studentToRegister);
+			// this.students.push(studentToRegister)
+			this.students.push(new Student(studentToRegister.name, studentToRegister.email));
 			console.log(
 				`Successfully registered ${studentToRegister.email} to the bootcamp ${this.name}`
 			);
@@ -43,6 +44,31 @@ class Bootcamp {
             return true;
         }
 	}
+
+    getInfo(){
+		console.log(`Bootcamp: ${this.name}, Level: ${this.level}`);
+        return `Bootcamp: ${this.name}, Level: ${this.level}`;
+	}
+
+	removeStudent(email){
+		//this.students = this.students.filter((student) => {
+		//	return student.email !== email;
+		//});
+		let foundEmail = false;
+	    this.students.forEach((student, i) => {
+		   if (student.email === email){
+			foundEmail = true;
+			this.students.splice(i, 1);
+			console.log(`Removed ${student.name} from ${this.name} Bootcamp`)
+		   }
+		})
+		if(!foundEmail){
+			console.log(`No student with the email ${email} found in our records`)
+			return `No student with the email ${email} found in our records`;
+
+		}
+	
+}
 }
 
 //Tests
@@ -56,7 +82,8 @@ if (
 }
 
 reactBootcamp = new Bootcamp("React", "Advanced");
-console.log(reactBootcamp);
+// console.log(reactBootcamp);
+console.log(reactBootcamp.getInfo(), 'test getInfo method')
 if (
 	reactBootcamp.name === "React" &&
 	reactBootcamp.level === "Advanced" &&
@@ -82,6 +109,15 @@ const runTest = (bootcamp, student) => {
 	if (!bootcamp.listStudents()) {
 		console.log("TASK 4: PASS 2/2");
 	}
+ 
+	bootcamp.registerStudent(new Student("Donald Duck", "donald@duck.com"))
+	bootcamp.registerStudent(new Student("Elmer Fudd", "elmer@fudd.com"))
+	bootcamp.registerStudent(new Student( "Sylvester", "sylvester@loonytunes.com"))
+	bootcamp.registerStudent(new Student("Tweety", "tweety@loonytunes.com"));
+	console.log(bootcamp.students,'students after registration')
+    bootcamp.removeStudent('elmer@fudd.com');
+	console.log(bootcamp.students, "students after remove elmer fudd");
+    bootcamp.removeStudent('otheremail@com')
 };
 
 runTest(reactBootcamp, testStudent);

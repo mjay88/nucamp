@@ -22,10 +22,12 @@ const library = {
 	checkOutBook: function (title) {
 		try {
 			for(let book of this.books){
+				//add false flag
 				if(book.title === title && book.available){
 					book.available = false;
 					console.log(`You just checked out ${title}`)
 					return true;
+					//add break instead of returning true;
 				}
 			}
 			throw new Error(`${title} not found in database or is unavailable`);
