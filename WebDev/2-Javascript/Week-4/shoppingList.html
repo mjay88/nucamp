@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List App</title>
+    <style>
+        ul {
+            list-style-type: "\2610 ";
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Shopping List</h1>
+    <form id="myForm">
+        <label for="item">Add an item:</label>
+        <input id="item" type="text" name="item">
+        <button type="submit" id="addButton">Add</button>
+    </form>
+    <ul id="shoppingList">
+        <!-- list items will go into this ul via DOM manipulation -->
+    </ul>
+    <script>
+        // add your JavaScript code here
+        const input = document.getElementById('item');
+        const button = document.getElementById('addButton');
+        const list = document.getElementById('shoppingList');
+        const form = document.getElementById('myForm');
+        const listItems = []
+        //add event listener
+        button.addEventListener('click', (e) => {//this context not created with arrow function
+            e.preventDefault()
+            try{
+                if(input.value === ""){
+                    throw new Error("You didn't enter anything...")
+                }
+                listItems.push(input.value);
+                appendListItems(listItems);
+            }catch(e){
+                console.log(e.message);
+            }
+            form.reset();
+        });
+        
+        function appendListItems(listItems){
+            //clear the list
+            list.innerHTML = "";
+            //filter and sort listItems
+            const filteredList = [...new Set(listItems)].sort();
+            //iterate through filtered array and append to ul
+            filteredList.forEach((item) => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                li.addEventListener('click', removeItem)
+                list.appendChild(li);
+            })
+        }
+
+        function removeItem(e){
+          //filter based on text
+            const filteredRemoveList = listItems.filter(item => item !== e.target.textContent);
+            appendListItems(filteredRemoveList);
+
+        }
+
+    </script>
+</body>
+</html>
