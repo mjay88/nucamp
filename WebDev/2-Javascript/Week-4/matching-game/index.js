@@ -20,15 +20,34 @@ function generateFaces() {
     console.log(leftSideImagesClone, 'leftside images')
     leftSideImagesClone.removeChild(leftSideImagesClone.lastChild);
     while(leftSideImagesClone.firstChild){
-        let image = leftSideImagesClone.firstChild;
+		let image = leftSideImagesClone.firstChild;
         console.log(image.style.left, "image style before");
         
         image.style.left =
-					Number(image.style.left.slice(0, -2)) +
-					theRightSide.getBoundingClientRect().left +
-					"px";
+		Number(image.style.left.slice(0, -2)) +
+		theRightSide.getBoundingClientRect().left +
+		"px";
         // console.log((Number(image.style.left.slice(0, -2)) + theRightSide.getBoundingClientRect().left) , 'image style')
-console.log(image.style.left, 'after')
+		console.log(image.style.left, 'after')
         theRightSide.appendChild(image);
     }
+	let missingFace = theLeftSide.lastChild;
+	missingFace.addEventListener('click', nextLevel)
+	document.body.addEventListener('click', gameOver);
+}
+
+function nextLevel(e){
+
+e.stopPropagation();
+console.log("clicked")
+numberOfFaces += 1;
+theLeftSide.innerHTML = "";
+theRightSide.innerHTML = "";
+generateFaces();
+}
+
+function gameOver() {
+	alert('Game over, you lose');
+	theLeftSide.lastChild.removeEventListener("click", nextLevel);
+	document.body.removeEventListener("click", gameOver);
 }
