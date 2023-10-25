@@ -1,4 +1,15 @@
 .square {
- width: 100px;
- height: 100px;
+	width: 100px;
+	height: 100px;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+	font-family: "Kalam", cursive;
+    font-family: "Exo 2", sans-serif;
+}
+
+.reset-button {
+    position: absolute;
+    bottom: 100px;
 }

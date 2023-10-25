@@ -3,7 +3,7 @@ const BOARD_WIDTH = 3;
 let board = generateEmptyboard();
 const gameHeading = document.getElementById("game-heading");
 let squares = document.querySelectorAll(".square");
-const resetButton = document.getElementById("restart");
+// const resetButton = document.getElementById("restart");
 let currentPlayer = 1;
 let numberOfMoves = 0;
 console.log(squares);
@@ -17,7 +17,7 @@ squares.forEach((square, i) => {
 	});
 });
 
-resetButton.addEventListener('click', restartGame)
+// resetButton.addEventListener('click', restartGame)
 
 function makeMove(square, row, col) {
 	square.innerHTML =
@@ -78,8 +78,13 @@ function didPlayerWin() {
 }
 
 function endGame(){
-    resetButton.classList.remove("d-none");
-    resetButton.classList.add("d-inline");
+    let resetButton = document.createElement("button")
+    resetButton.classList.add("restart-button", "btn", "btn-secondary");
+    resetButton.textContent = "Restart";
+    resetButton.addEventListener('click', restartGame);
+    document.querySelector(".container").appendChild(resetButton);
+
+    // resetButton.classList.remove("d-none");
     squares.forEach((square) => {
         square.disabled = true;
     })
@@ -98,7 +103,9 @@ function restartGame(){
         square.disabled = false;
     });
     setCurrentPlayerHeader();
-    resetButton.classList.add("d-none")
+    // resetButton.classList.add("d-none")
+    let container = document.querySelector(".container");
+    container.removeChild(container.lastChild);
 }
 
 function generateEmptyboard(){
