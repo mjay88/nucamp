@@ -50,18 +50,19 @@ function nextLevel(e) {
 function gameOver(e) {
 	e.stopPropagation(); //important so all our other click activated event listeners do not fire
 	alert("Game over, you lose");
-	container.removeEventListener("click", gameOver);
+	innerContainer.removeEventListener("click", gameOver);
 	let missingFace = theLeftSide.lastChild;
 	missingFace.removeEventListener("click", nextLevel);
-	// topContainerNode.removeEventListener("click", gameOver)
 	const button = document.createElement("button");
 	button.classList.add("restart-button");
 	button.textContent = "Restart Game";
-	// button.removeEventListener("click", gameOver);
 	button.addEventListener("click", restart);
 	topContainerNode.appendChild(button);
+	//reset the select to select
+	const selectElem = document.getElementById("select-difficulty");
+	selectElem.selectedIndex = [0];
 }
-
+//add eleemnt for tracking winning streak
 function appendStreak() {
 	streak++;
 	const topContainerNode = document.querySelector(".top-container");
@@ -69,8 +70,6 @@ function appendStreak() {
 	let streakNode = document.createElement("span");
 	streakNode.classList.add("streak-span");
 	streakNode.textContent = `Current winning streak: ${streak}`;
-	// console.log(streakNode);
-	// console.log(topContainerNode);
 
 	topContainerNode.appendChild(streakNode);
 }
@@ -87,8 +86,6 @@ function restart(e) {
 	numberOfFaces = 5;
 	//remove button
 	let button = document.querySelector(".restart-button");
-	console.log(e.target, "e.taraget.value for restart");
-	console.log(button, "button should be removed");
 	if (button) topContainerNode.removeChild(button);
 	generateFaces();
 }
@@ -100,7 +97,7 @@ selectElem.addEventListener("change", function (event) {
 	const selectedOption = event.target.options[event.target.selectedIndex];
 
 	if (selectedOption.value === "easy") {
-		restart(event);
+		restart(event);//why is this not clearing the innerHTML?
 		theLeftSide.innerHTML = "";
 		theRightSide.innerHTML = "";
 		numberOfFaces = 2;
