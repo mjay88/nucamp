@@ -1,3 +1,12 @@
+body {
+font-family: 'Exo 2', sans-serif;
+font-family: 'Kalam', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Pixelify Sans', sans-serif;
+font-size: larger;
+font-weight: bold;
+}
+
 img {
 	position: absolute;
 }
@@ -9,47 +18,65 @@ div {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 p:first-of-type {
-    display: block;
+	display: block;
 }
 
 .inner-container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
 }
 
 .top-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: sp; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: sp; */
 }
 
 #rightSide {
 	/* left: 500px; */
-    height: 100vh;
-    width: 50%;
-	border-left: 1px solid black;
-    margin-top: 2rem;
-
+	height: 70vh;
+	width: 50%;
+	border: 1px solid black;
+	margin: 2rem 2.5rem 0 2.5rem;
 }
 
-#leftSide {
-    height: 100vh;
-    width: 50%;
-    margin-top: 2rem;
+#leftSide { 
+	height: 70vh;
+	width: 50%;
+	border: 1px solid black;
+	margin: 2rem 2.5rem 0 2.5rem;
 }
 
-.reset-button {
+.restart-button {
+	position: absolute;
+	top: 10rem;
+    font-family: inherit;
+	/* margin: 2rem; */
+}
+
+.streak-span {
+	position: absolute;
+	right: 2rem;
+	top: 1.5rem;
+}
+
+label {
     position: absolute;
-    bottom : 100px;
+    left: 2rem;
+    top: 2rem;
 }
 
-
+select {
+    position: absolute;
+    left: 2rem;
+    top: 4rem;
+}
