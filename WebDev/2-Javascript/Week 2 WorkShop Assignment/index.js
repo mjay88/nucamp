@@ -47,7 +47,8 @@ function runGame() {
 		guess = prompt(`I am thinking of one of these colors: \n\n 
      ${COLORS_ARRAY.join(", ")}\n\n
      What color am I thinking of? \n
-    `).toLowerCase();
+    `)
+	guess = guess.toLowerCase();
 		if (guess === null) {
 			alert("You didn't enter anything");
 			return;
