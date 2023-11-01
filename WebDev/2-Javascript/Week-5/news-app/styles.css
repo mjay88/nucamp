@@ -2,7 +2,8 @@ body {
   background-image: url("https://img.freepik.com/free-vector/vector-world-globe-map-north-america-centered-map-blue-planet-sphere-icon_8130-1953.jpg?w=1060&t=st=1698877645~exp=1698878245~hmac=2d9a4d01affe2d4c3d3857bf937c9cc63847a916c9629f690f54aef1350bb79f");
   background-size: 50%; /* This will ensure that the background covers the entire body */
   background-repeat: no-repeat; /* This will prevent the background from repeating */
-  background-position: center center; /* This will center the background image */
+  background-position: top center; /* This will center the background image */
+  background-attachment: fixed;
   font-family: "Exo 2", sans-serif;
 	font-family: "Kalam", cursive;
 	font-family: "Pixelify Sans", sans-serif;
