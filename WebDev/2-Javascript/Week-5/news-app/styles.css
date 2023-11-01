@@ -1,0 +1,16 @@
+#news{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.article {
+    margin: 2rem;
+}
+img{
+    width: 200px;
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+}
