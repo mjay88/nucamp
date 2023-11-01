@@ -18,5 +18,5 @@ carouselButton.addEventListener('click', function () {
         faIcon.classList.add('fa-pause');
         carousel.cycle();
     }
-}) 
+})  
    
