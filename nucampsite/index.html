@@ -95,6 +95,11 @@
 							>
 						</li>
 					</ul>
+					<div id="weather" class="d-none d-md-flex align-items-center">
+						<i id="weather-icon"></i>
+						<span id="weather-temp"></span>
+						<span id="weather-description" class="d-none d-lg-inline"></span>
+					</div>
 					<span class="navbar-text ms-auto">
 						<a
 							role="button"
@@ -329,11 +334,10 @@
 							<span class="carousel-control-next-icon"></span>
 							<span class="sr-only">Next</span>
 						</a>
-						
-							<button class="btn btn-danger btn-sm" id="carouselButton">
-								<i class="fa-solid fa-play" id="faButton"></i>
-							</button>
-						
+
+						<button class="btn btn-danger btn-sm" id="carouselButton">
+							<i class="fa-solid fa-play" id="faButton"></i>
+						</button>
 					</div>
 				</div>
 			</section>
@@ -479,6 +483,6 @@
 
 		<!-- Bootstrap JavaScript plugins -->
 		<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-        <script src="/js/script.js"></script>
+		<script src="/js/script.js" type="module"></script>
 	</body>
 </html>
