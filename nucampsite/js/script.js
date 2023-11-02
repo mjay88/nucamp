@@ -52,7 +52,7 @@ function displayWeather(weatherData) {
 	icon.appendChild(weatherIcon);
 	//get and append temp
 	const temperature = weatherData.main.temp;
-	temp.textContent = temperature;
+	temp.textContent = temperature + "°F";
 
 	//get and append description
 	const description = weatherData.weather[0].description;
