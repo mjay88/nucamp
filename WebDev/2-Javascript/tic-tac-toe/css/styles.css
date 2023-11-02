@@ -15,6 +15,7 @@ body {
 
 .row button {
   font-size: 3rem;
+  color: black;
 }
 
 @media (max-width: 375px) {

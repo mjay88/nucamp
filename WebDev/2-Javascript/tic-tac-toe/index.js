@@ -22,6 +22,7 @@ squares.forEach((square, i) => {
 function makeMove(square, row, col) {
 	square.innerHTML = currentPlayer % 2 === 0 ? "X" : "O";
 	numberOfMoves++;
+	square.style.color = "black";
 	square.disabled = true;
 	//set the board
 	board[row][col] = currentPlayer;
