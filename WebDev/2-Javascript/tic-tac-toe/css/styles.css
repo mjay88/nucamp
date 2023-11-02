@@ -20,6 +20,27 @@ body {
   color: black;
 }
 
+.score-tracker {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  font-size: 2rem;
+}
+.score-tracker #score-container {
+  display: flex;
+  justify-content: center;
+}
+.score-tracker #player-1-score {
+  border-right: 0.2rem solid black;
+  border-top: 0.2rem solid black;
+  margin-right: -0.5rem;
+  padding: 0.25rem;
+}
+.score-tracker #player-2-score {
+  border-top: 0.2rem solid black;
+  padding: 0.25rem;
+}
+
 @media (max-width: 375px) {
   .restart-button {
     position: absolute;

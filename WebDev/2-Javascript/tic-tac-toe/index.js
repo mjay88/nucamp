@@ -6,6 +6,9 @@ let squares = document.querySelectorAll(".square");
 // const resetButton = document.getElementById("restart");
 let currentPlayer = 1;
 let numberOfMoves = 0;
+let player1Score = 0;
+let player2Score = 0;
+
 console.log(squares);
 //add eventListener to all the squares
 squares.forEach((square, i) => {
@@ -109,3 +112,8 @@ function restartGame() {
 function generateEmptyboard() {
 	return new Array(BOARD_WIDTH).fill().map(() => new Array(BOARD_WIDTH).fill());
 }
+
+//function to keep track of score
+//need global variable for number of games
+//need to remove d-none class
+//
