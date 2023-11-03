@@ -1,19 +1,18 @@
 .square {
-	width: 10rem;
-	height: 10rem;
+	width: 9rem;
+	height: 9rem;
 }
 
 body {
 	font-family: "Exo 2", sans-serif;
-
 	font-family: "Pixelify Sans", sans-serif;
 }
 
 .restart-button {
 	position: absolute;
-	bottom: 2.5rem;
+	bottom: 0.5rem;
 	width: 11rem;
-	font-size: 2rem;
+	font-size: 1.5rem;
 }
 
 .row button {
@@ -26,7 +25,7 @@ body {
 	position: absolute;
 	top: 2.5rem;
 	right: 2.5rem;
-	font-size: 2rem;
+	font-size: 1.8rem;
 	#score-container {
 		display: flex;
 		justify-content: center;
@@ -44,14 +43,6 @@ body {
 	}
 }
 
-@media (max-width: 375px) {
-	.restart-button {
-		position: absolute;
-		bottom: 50px;
-		width: 10rem;
-	}
-}
-
 /* Large devices (laptops/desktops, 1200px and up) */
 @media (max-width: 1199.98px) {
 	.square {
@@ -64,6 +55,11 @@ body {
 	}
 	.restart-button {
 		width: 9rem;
+		font-size: 1.5rem;
+		bottom: 0.6rem;
+	}
+
+	.score-tracker {
 		font-size: 1.5rem;
 	}
 }
@@ -78,6 +74,18 @@ body {
 	.row button {
 		font-size: 2.25rem;
 	}
+	.restart-button {
+		bottom: 3rem;
+	}
+	.score-tracker {
+		font-size: 1.3rem;
+		#player-1-score {
+			padding-right: 0.5rem;
+		}
+		#player-2-score {
+			padding-left: 0.5rem;
+		}
+	}
 }
 
 /* Small devices (landscape phones, 768px and up) */
@@ -89,6 +97,26 @@ body {
 	.row button {
 		font-size: 2rem;
 	}
+	// .restart-button {
+	// 	bottom: 0.2rem;
+	// }
+	.score-tracker {
+		position: absolute;
+		font-size: 1.3rem;
+		top: 8rem;
+		left: 0rem;
+		right: 0rem;
+		#player-1-score {
+			padding-right: 0.5rem;
+		}
+		#player-2-score {
+			padding-left: 0.5rem;
+		}
+	}
+	#game-heading {
+		position: absolute;
+		top: 1.5rem;
+	}
 }
 
 /* Extra small devices (portrait phones, 576px and up) */
@@ -97,6 +125,24 @@ body {
 		width: 6rem;
 		height: 6rem;
 	}
+	.score-tracker {
+		position: absolute;
+		font-size: 1.3rem;
+		top: 8rem;
+		left: 0rem;
+		right: 0rem;
+		#player-1-score {
+			padding-right: 0.5rem;
+		}
+		#player-2-score {
+			padding-left: 0.5rem;
+		}
+	}
+
+	#game-heading {
+		position: absolute;
+		top: 1.5rem;
+	}
 }
 
 /* Extra extra small devices (phones, 320px and up) */
@@ -104,5 +150,23 @@ body {
 	.square {
 		width: 5rem;
 		height: 5rem;
+	}
+	.score-tracker {
+		position: absolute;
+		font-size: 1.2rem;
+		top: 9rem;
+		left: 0rem;
+		right: 0rem;
+		#player-1-score {
+			padding-right: 0.5rem;
+		}
+		#player-2-score {
+			padding-left: 0.5rem;
+		}
+	}
+
+	#game-heading {
+		position: absolute;
+		top: 1.3rem;
 	}
 }

@@ -9,7 +9,6 @@ let numberOfMoves = 0;
 let player1Score = 0;
 let player2Score = 0;
 
-console.log(squares);
 //add eventListener to all the squares
 squares.forEach((square, i) => {
 	square.addEventListener("click", () => {
@@ -31,6 +30,7 @@ function makeMove(square, row, col) {
 	board[row][col] = currentPlayer;
 	if (didPlayerWin()) {
 		gameHeading.textContent = `Player ${currentPlayer} is the Winner`;
+		keepScore(currentPlayer);
 		endGame();
 	} else if (numberOfMoves >= BOARD_WIDTH * BOARD_WIDTH) {
 		gameHeading.textContent = "Tie Game!";
@@ -114,6 +114,45 @@ function generateEmptyboard() {
 }
 
 //function to keep track of score
-//need global variable for number of games
+//need global variables for respective players scores
 //need to remove d-none class
 //
+function keepScore(currentPlayer) {
+	currentPlayer === 1 ? player1Score++ : player2Score++;
+	document.getElementById(
+		"player-1-score"
+	).textContent = `Player 1: ${player1Score}`;
+	document.getElementById(
+		"player-2-score"
+	).textContent = `Player 2: ${player2Score}`;
+	const scoreDiv = document.querySelector(".score-tracker");
+	console.log(scoreDiv, "scoreDiv");
+	console.log(player1Score, "player1Score");
+	if (scoreDiv.classList.contains("d-none")) {
+		scoreDiv.classList.remove("d-none");
+	}
+}
+
+//reset the score
+function resetScore() {
+	player1Score = 0;
+	player2Score = 0;
+	const scoreDiv = document.querySelector(".score-tracker");
+	scoreDiv.classList.add("d-none");
+}
+
+function fadeInText(element) {
+	element.style.opacity = 0;
+	element.style.transition = "opacity 0.5s ease-in-out";
+	element.textContent = "New Text";
+	setTimeout(() => {
+		element.style.opacity = 1;
+	}, 10);
+}
+
+// setTimeout(() => {
+// 	square.style.transition = "opacity 0.5s ease";
+// 	square.style.opacity = 0;
+// 	square.innerHTML = currentPlayer % 2 === 0 ? "X" : "O";
+// 	square.style.opacity = 1;
+// }, 50);
