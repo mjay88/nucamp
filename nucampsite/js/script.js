@@ -1,5 +1,5 @@
 const carousel = new bootstrap.Carousel("#homeCarousel", {
-	interval: 2000,
+	interval: 3000,
 	pause: false,
 });
 
