@@ -592,8 +592,9 @@ async function fetchNews(url) {
 }
 fetchNews(newsUrl);
 function displayNews(articles) {
+    let mappedArticles = articles.filter((article)=>article.author != null);
     const newsDiv = document.querySelector("#news");
-    for (const article of articles){
+    for (const article of mappedArticles){
         const articleDiv = document.createElement("div");
         articleDiv.classList.add("article", "card");
         articleDiv.style.width = "18rem";
@@ -605,8 +606,7 @@ function displayNews(articles) {
         headline.href = article.url;
         const cardText = document.createElement("p");
         cardText.classList.add("card-text");
-        cardText.textContent = article.title //.slice(0, 20) + "...";
-        ;
+        cardText.textContent = article.title; //.slice(0, 20) + "...";
         headline.appendChild(cardText);
         articleDiv.appendChild(headline);
         //create and add image to articleDiv, make image a link
@@ -633,6 +633,12 @@ form.addEventListener("submit", (event)=>{
     const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
     fetchNews(url);
 });
+Promise.all([
+    Promise.reject("rejected"),
+    new Promise((res, rej)=>setTimeout(()=>res("first promise"), 3000)),
+    new Promise((res, rej)=>setTimeout(()=>res("second promise"), 2000)),
+    new Promise((res, rej)=>setTimeout(()=>res("third promise"), 1000))
+]).then(console.log).catch(console.log);
 
 },{}]},["fe3DU","f47v6"], "f47v6", "parcelRequire7309")
 
